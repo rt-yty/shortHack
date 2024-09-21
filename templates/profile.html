@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, {{.User.Username}}</h2>
+        <p>Email: {{.User.Email}}</p>
+        <p>Full Name: {{.Profile.FullName}}</p>
+        <p>Age: {{.Profile.Age}}</p>
+
+        <form action="/profile/update" method="post">
+            <input type="text" name="fullname" placeholder="Full Name" value="{{.Profile.FullName}}" required>
+            <input type="number" name="age" placeholder="Age" value="{{.Profile.Age}}" required>
+            <button type="submit">Update Profile</button>
+        </form>
+
+        <p><a href="/logout">Log out</a></p>
+    </div>
+</body>
+</html>
